@@ -1,6 +1,6 @@
 $("#search-btn").on("click", function() {
   var searchterm = $("#search-term").val().trim();
-  var queryURL = "https://api.covid19api.com/country/south-africa/status/confirmed?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z";
+  var queryURL = "https://api.covid19api.com/summary";
 
   //Coronavirus confirmed,deaths,recovered by Country
   //https://api.covid19api.com/summary
@@ -13,16 +13,14 @@ $("#search-btn").on("click", function() {
 
   //General Disease API
 
+
   $.ajax({
-    url: "https://data.cdc.gov/resource/9bhg-hcku.json",
+    url: queryURL,
     type: "GET",
-    data: {
-      "$limit" : 5000,
-      "$$app_token" : "YOURAPPTOKENHERE"
-    }
+    dataType: JSON
+
   }).done(function(data) {
-  alert("Retrieved " + data.length + " records from the dataset!");
-  console.log(data);
+    console.log(data);
   });
 
 });
