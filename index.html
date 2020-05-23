@@ -32,31 +32,26 @@
         <section class="row info-section">
             <div class="col-sm-6 col-xs-12" id="search-view">
 
-                <form class="" id="search-form">
-                    <div class="form-group">
-                        <label class="sr-only" for="search-input">Search input</label>
-                        <input type="text" class="form-control" id="search-input" placeholder="#">
+                <form class="input-group">
+                    <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Dropdown</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div role="separator" class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                        </div>
                     </div>
                 </form>
 
-                <div class="search-controls">
-                    <i id="datepicker-btn" class="fa fa-calendar panel-control selected-panel" aria-hidden="true"
-                        data="datepicker"></i>
-                    <i id="search-list-btn" class="fa fa-search panel-control" aria-hidden="true"
-                        data="search-list"></i>
-                </div>
-                <hr class="hr">
-                <div class="search-result-cont">
-                    <span class="product-heading search-heading">#</span>
-                    <span class="calories-heading search-heading">#</span>
+                <iframe
+                src="https://static.usafacts.org/public/2020/coronavirus-timeline/county-embed.html?state=CA"
+                width="100%" frameborder="0" height="680"></iframe>
 
-                    <ul id="search-result-list" class="col-xs-12"></ul>
 
-                    <button id="search-menu-toggle-btn" class="visible-xs">
-                        <i class="fa fa-angle-double-up" aria-hidden="true"></i>
-                    </button>
-
-                </div>
 
 
 
