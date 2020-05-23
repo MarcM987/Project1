@@ -31,7 +31,7 @@ $(".btn").on("click", function() {
         "<td>" + response.Countries[i].TotalConfirmed + "<td>" + 
         "<td>" + response.Countries[i].TotalDeaths + "<td>" + 
         "<td>" + response.Countries[i].TotalRecovered + "<td>" + 
-        "<td>" + int(response.Countries[i].TotalConfirmed/response.Countries[i].TotalDeaths) + "<td>" + 
+        "<td>" + Math.trunc(response.Countries[i].TotalDeaths/response.Countries[i].TotalConfirmed*100) + "%<td>" + 
         "<tr>");
         $("tbody").append(tblRow);
 
