@@ -23,7 +23,17 @@ $(".btn").on("click", function() {
   }).done(function(data) {
     console.log(data);
 
-    var tblRow = $("<tr><tr>");
+    for(let i=0; i<0; ++i){
+      console.log("check");
+      if(data.Countries[i].Country == "searchCountry"){
+        console.log("yay");
+      }else{
+        console.log("boo");
+      }
+      
+    }
+
+    // var tblRow = $("<tr><tr>");
 
   });
 
