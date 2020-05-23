@@ -21,8 +21,6 @@ $(".btn").on("click", function() {
   }).done(function(data) {
     console.log(data);
 
-
-
   });
 
 });
