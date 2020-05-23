@@ -21,22 +21,25 @@ $(".btn").on("click", function() {
     type: "GET",
 
   }).done(function(data) {
-    console.log(data);
+    var response = data;
 
     for(let i=0; i<186; ++i){
-      if(data.Countries[i].Country == searchCountry){
-        console.log(data.Countries[i]);
-        var tblRow = $("<tr>").html("<td>" + searchCountry+ "<td>");
-        $(".tbody").append(tblRow);
+      if(response.Countries[i].Country == searchCountry){
+        console.log(response.Countries[i]);
+        var tblRow = $("<tr>" + 
+        "<td>" + response.Countries[i].Country + "<td>" + 
+        "<td>" + response.Countries[i].TotalConfirmed + "<td>" + 
+        "<td>" + response.Countries[i].TotalDeaths + "<td>" + 
+        "<td>" + response.Countries[i].TotalRecovered + "<td>" + 
+        "<td>" + int(response.Countries[i].TotalConfirmed/response.Countries[i].TotalDeaths) + "<td>" + 
+        "<tr>");
+        $("tbody").append(tblRow);
 
       }else{
-        
+        //append to buttom of form, country or disease not found
       }
       
     }
-
-    
-
   });
 
 });
