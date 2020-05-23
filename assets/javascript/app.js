@@ -28,6 +28,7 @@ $(".btn").on("click", function() {
         console.log(response.Countries[i]);
         var tblRow = $("<tr>" + 
         "<td>" + response.Countries[i].Country + "<td>" + 
+        "<td>" + "COVID-19" + "<td>" + 
         "<td>" + response.Countries[i].TotalConfirmed + "<td>" + 
         "<td>" + response.Countries[i].TotalDeaths + "<td>" + 
         "<td>" + response.Countries[i].TotalRecovered + "<td>" + 
