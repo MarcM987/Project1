@@ -23,17 +23,19 @@ $(".btn").on("click", function() {
   }).done(function(data) {
     console.log(data);
 
-    for(let i=0; i<0; ++i){
-      console.log("check");
-      if(data.Countries[i].Country == "searchCountry"){
-        console.log("yay");
+    for(let i=0; i<186; ++i){
+      if(data.Countries[i].Country == searchCountry){
+        console.log(data.Countries[i]);
+        var tblRow = $("<tr>").html("<td>" + searchCountry+ "<td>");
+        $(".tbody").append(tblRow);
+
       }else{
-        console.log("boo");
+        
       }
       
     }
 
-    // var tblRow = $("<tr><tr>");
+    
 
   });
 
