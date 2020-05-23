@@ -1,5 +1,5 @@
-$("#search-btn").on("click", function() {
-  var searchterm = $("#search-term").val().trim();
+$(".btn").on("click", function() {
+  // var searchterm = $("#search-term").val().trim();
   var queryURL = "https://api.covid19api.com/summary";
 
   //Coronavirus confirmed,deaths,recovered by Country
@@ -17,10 +17,12 @@ $("#search-btn").on("click", function() {
   $.ajax({
     url: queryURL,
     type: "GET",
-    dataType: JSON
 
   }).done(function(data) {
-    console.log(data);
+    console.log(data.Countries[0]);
+
+
+
   });
 
 });
@@ -39,5 +41,3 @@ $("#search-btn").on("click", function() {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-
-  alert();
