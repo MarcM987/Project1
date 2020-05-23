@@ -19,7 +19,7 @@ $(".btn").on("click", function() {
     type: "GET",
 
   }).done(function(data) {
-    console.log(data.Countries[0]);
+    console.log(data);
 
 
 
