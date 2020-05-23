@@ -1,5 +1,7 @@
 $(".btn").on("click", function() {
-  // var searchterm = $("#search-term").val().trim();
+  var searchCountry = $("#country").val().trim();
+  // var searchDisease = $("#disease").val().trim();
+
   var queryURL = "https://api.covid19api.com/summary";
 
   //Coronavirus confirmed,deaths,recovered by Country
@@ -20,6 +22,8 @@ $(".btn").on("click", function() {
 
   }).done(function(data) {
     console.log(data);
+
+    var tblRow = $("<tr><tr>");
 
   });
 
