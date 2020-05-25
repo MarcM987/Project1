@@ -32,6 +32,7 @@ $(".btn").on("click", function() {
   
     }).done(function(data) {
       var response = data;
+      
            
       var tblRow = $("<tr>" + 
       "<td>" + searchCountry + "</td>" + 
@@ -54,6 +55,8 @@ $(".btn").on("click", function() {
 
   }).done(function(data) {
     var response = data;
+    var today = new Date();
+    var year = today.getFullYear();
 
     for(let i=0; i<186; ++i){
       if(response.Countries[i].Country == searchCountry){
@@ -65,7 +68,7 @@ $(".btn").on("click", function() {
         "<td>" + response.Countries[i].TotalDeaths + "</td>" + 
         "<td>" + response.Countries[i].TotalRecovered + "</td>" + 
         "<td>" + Math.trunc(response.Countries[i].TotalDeaths/response.Countries[i].TotalConfirmed*100) + "%</td>" + 
-        "<td>" + "2020" + "</td>" + 
+        "<td>" + year + "</td>" + 
         "</tr>");
         $("#table1").html(tblRow);
 
