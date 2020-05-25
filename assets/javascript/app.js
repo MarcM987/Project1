@@ -1,8 +1,8 @@
 $(".btn").on("click", function() {
   var searchCountry = $("#country").val().trim();
-  var searchDisease = $("#disease").val().trim();
+  // var searchDisease = $("#disease").val().trim();
 
-  var queryURL = "https://api.covid19api.com/summary";
+  var queryURLc = "https://api.covid19api.com/summary";
 
   //Coronavirus confirmed,deaths,recovered by Country
   //https://api.covid19api.com/summary
@@ -14,10 +14,42 @@ $(".btn").on("click", function() {
   //https://data.cdc.gov/resource/9bhg-hcku.json
 
   //General Disease API
+  //https://apps.who.int/gho/athena/api/GHO/WHS3_40.json?filter=COUNTRY:USA
+
+ 
+
+  var diseases = ["Cholera", "Diptheria", "Japanese Encephalitis", "Pertussis", "Leprosy", "Total Tetanus", "Meningitis", "Malaria",
+    "Poliomyelitis", "Yellow Fever", "H5N1 Influenze", "Plague", "Mupms", "Tuberculosis", "Congenital Rubella Syndrome",
+    "Neonatal Tetatnus", "Total Rubella"];
+  
+  for(let i=0; i<diseases.length; ++i){
+    var queryURLg = "http://apps.who.int/gho/athena/api/GHO/WHS3_" + (40 + i) + ".json?filter=COUNTRY:USA";
+
+    $.ajax({
+      url: queryURLg,
+      type: "GET",
+      dataType: "jsonp"
+  
+    }).done(function(data) {
+      var response = data;
+           
+      var tblRow = $("<tr>" + 
+      "<td>" + searchCountry + "</td>" + 
+      "<td>" + diseases[i] + "</td>" + 
+      "<td>" + response.fact[0].Dim[2].code + "</td>" + 
+      "<td>" + response.fact[0].value.display + "</td>" + 
+      "</tr>");
+
+      $("#table2").append(tblRow);
+    });
+
+  }
+  
+
 
 
   $.ajax({
-    url: queryURL,
+    url: queryURLc,
     type: "GET",
 
   }).done(function(data) {
@@ -34,7 +66,7 @@ $(".btn").on("click", function() {
         "<td>" + response.Countries[i].TotalRecovered + "</td>" + 
         "<td>" + Math.trunc(response.Countries[i].TotalDeaths/response.Countries[i].TotalConfirmed*100) + "%</td>" + 
         "</tr>");
-        $("tbody").append(tblRow);
+        $("#table1").append(tblRow);
 
       }else{
         //append to buttom of form, country or disease not found
@@ -42,8 +74,9 @@ $(".btn").on("click", function() {
       
     }
   });
-
 });
+
+
     
   // Your web app's Firebase configuration
   var firebaseConfig = {
