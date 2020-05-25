@@ -1,14 +1,14 @@
 header {
-    background: url("../images/covid.png");
+    background: url("../images/disease.jpg");
     height: 200px;
     text-align: center;
 }
 
 .text-box {
     padding-top: 50px;
-    font-family: 'Bungee', cursive;
+    font-family: 'Playfair Display SC', serif;
     font-size: 40px;
-    color: black;
+    color: white;
 }
 
 
