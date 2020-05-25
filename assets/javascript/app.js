@@ -1,6 +1,6 @@
 $(".btn").on("click", function() {
   var searchCountry = $("#country").val().trim();
-  // var searchDisease = $("#disease").val().trim();
+  var searchDisease = $("#disease").val().trim();
 
   var queryURL = "https://api.covid19api.com/summary";
 
@@ -27,13 +27,13 @@ $(".btn").on("click", function() {
       if(response.Countries[i].Country == searchCountry){
         console.log(response.Countries[i]);
         var tblRow = $("<tr>" + 
-        "<td>" + response.Countries[i].Country + "<td>" + 
-        "<td>" + "COVID-19" + "<td>" + 
-        "<td>" + response.Countries[i].TotalConfirmed + "<td>" + 
-        "<td>" + response.Countries[i].TotalDeaths + "<td>" + 
-        "<td>" + response.Countries[i].TotalRecovered + "<td>" + 
-        "<td>" + Math.trunc(response.Countries[i].TotalDeaths/response.Countries[i].TotalConfirmed*100) + "%<td>" + 
-        "<tr>");
+        "<td>" + response.Countries[i].Country + "</td>" + 
+        "<td>" + "COVID-19" + "</td>" + 
+        "<td>" + response.Countries[i].TotalConfirmed + "</td>" + 
+        "<td>" + response.Countries[i].TotalDeaths + "</td>" + 
+        "<td>" + response.Countries[i].TotalRecovered + "</td>" + 
+        "<td>" + Math.trunc(response.Countries[i].TotalDeaths/response.Countries[i].TotalConfirmed*100) + "%</td>" + 
+        "</tr>");
         $("tbody").append(tblRow);
 
       }else{
