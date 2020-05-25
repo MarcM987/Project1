@@ -1,6 +1,17 @@
 header {
-    font-family: 'Cinzel', serif;
+  
+    background: url("../images/disease.jpg");
+    height: 200px;
+    text-align: center;
 }
+
+.text-box {
+    padding-top: 50px;
+    font-family: 'Cinzel', serif;
+    font-size: 30px;
+    color: white;
+}
+
 
 body {
     font-family: 'Neuton', serif;
