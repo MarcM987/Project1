@@ -1,3 +1,12 @@
+header {
+    font-family: 'Cinzel', serif;
+}
+
+body {
+    font-family: 'Neuton', serif;
+    font-size: 18px;
+}
+
 .container {
    padding: 30px
 }
