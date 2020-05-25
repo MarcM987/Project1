@@ -23,7 +23,7 @@ $(".btn").on("click", function() {
     "Neonatal Tetatnus", "Total Rubella"];
   
   for(let i=0; i<diseases.length; ++i){
-    var queryURLg = "http://apps.who.int/gho/athena/api/GHO/WHS3_" + (40 + i) + ".json?filter=COUNTRY:USA";
+    var queryURLg = "https://apps.who.int/gho/athena/api/GHO/WHS3_" + (40 + i) + ".json?filter=COUNTRY:USA";
 
     $.ajax({
       url: queryURLg,
