@@ -67,7 +67,7 @@ $(".btn").on("click", function() {
         "<td>" + Math.trunc(response.Countries[i].TotalDeaths/response.Countries[i].TotalConfirmed*100) + "%</td>" + 
         "<td>" + "2020" + "</td>" + 
         "</tr>");
-        $("#table1").append(tblRow);
+        $("#table1").html(tblRow);
 
       }else{
         //append to buttom of form, country or disease not found
