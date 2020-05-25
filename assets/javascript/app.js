@@ -36,8 +36,8 @@ $(".btn").on("click", function() {
       var tblRow = $("<tr>" + 
       "<td>" + searchCountry + "</td>" + 
       "<td>" + diseases[i] + "</td>" + 
-      "<td>" + response.fact[0].Dim[2].code + "</td>" + 
       "<td>" + response.fact[0].value.display + "</td>" + 
+      "<td>" + response.fact[0].Dim[2].code + "</td>" + 
       "</tr>");
 
       $("#table2").append(tblRow);
