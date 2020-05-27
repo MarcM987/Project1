@@ -1,0 +1,23 @@
+{
+  "name": "Project1",
+  "version": "1.0.0",
+  "description": "* covid tracker (i.e. confirmed cases at location input)  * state,national global  * demogrpahics/related data  * General Disease/Health Data  * updated with realtime 'think how many people have the cold today, how many more people have coivd today, how many more cured?'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcM987/Project1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcM987/Project1/issues"
+  },
+  "homepage": "https://github.com/MarcM987/Project1#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
