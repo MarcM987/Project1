@@ -21,9 +21,25 @@ $(".btn").on("click", function() {
   var diseases = ["Cholera", "Diptheria", "Japanese Encephalitis", "Pertussis", "Leprosy", "Total Tetanus", "Meningitis", "Malaria",
     "Poliomyelitis", "Yellow Fever", "H5N1 Influenze", "Plague", "Mupms", "Tuberculosis", "Congenital Rubella Syndrome",
     "Neonatal Tetatnus", "Total Rubella"];
+
+  var countryCode = "";
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://restcountries-v1.p.rapidapi.com/name/Norway",
+    "method": "GET",
+    "headers": {
+    "x-rapidapi-host": "restcountries-v1.p.rapidapi.com",
+    "x-rapidapi-key": "38fb9f0126msh7282824fb92721fp160b73jsn317dc876bd2c"
+    }
+  }
+  
+  $.ajax(settings).done(function (response) {
+    countryCode = response[0].alpha3Code;
+  });
   
   for(let i=0; i<diseases.length; ++i){
-    var queryURLg = "https://apps.who.int/gho/athena/api/GHO/WHS3_" + (40 + i) + ".json?filter=COUNTRY:USA";
+    var queryURLg = "https://apps.who.int/gho/athena/api/GHO/WHS3_" + (40 + i) + ".json?filter=COUNTRY:" + countryCode;
 
     $.ajax({
       url: queryURLg,
@@ -46,8 +62,6 @@ $(".btn").on("click", function() {
 
   }
   
-
-
 
   $.ajax({
     url: queryURLc,
