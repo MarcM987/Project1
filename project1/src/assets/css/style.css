@@ -1,0 +1,45 @@
+header {
+    background: url("../images/disease.jpg");
+    height: 200px;
+    text-align: center;
+}
+
+.text-box {
+    padding-top: 30px;
+    font-family: 'Playfair Display SC', serif;
+    font-size: 30px;
+    color: white;
+}
+
+
+body {
+    font-family: 'Neuton', serif;
+    font-size: 18px;
+}
+
+.container {
+    padding: 30px;
+    border-block: solid;
+}
+
+.card {
+    margin: 20px;
+    margin-bottom: 40px;
+    padding: 20px;
+    border-bottom-width: 1px;
+    border-color: black;
+    border-block: 50px;
+}
+
+tbody {
+    overflow-y: scroll;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
