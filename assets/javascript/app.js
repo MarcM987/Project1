@@ -74,7 +74,7 @@ $(".btn").on("click", function() {
 
     for(let i=0; i<186; ++i){
       if(response.Countries[i].Country == searchCountry){
-        console.log(response.Countries[i]);
+        // console.log(response.Countries[i]);
         var tblRow = $("<tr>" + 
         "<td>" + response.Countries[i].Country + "</td>" + 
         "<td>" + "COVID-19" + "</td>" + 
