@@ -18,11 +18,21 @@ body {
 }
 
 .container {
-    padding: 30px
+    padding: 30px;
+    border-block: solid;
 }
 
 .card {
-    margin: 30px
+    margin: 20px;
+    margin-bottom: 40px;
+    padding: 20px;
+    border-bottom-width: 1px;
+    border-color: black;
+    border-block: 50px;
+}
+
+tbody {
+    overflow-y: scroll;
 }
 
 .footer {
