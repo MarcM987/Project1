@@ -1,14 +1,14 @@
-// const path = require('path');
+const path = require('path');
 const express = require("express");
 const app = express();
-// const publicPath = path.join(__dirname, '..', 'project1/public');
+const publicPath = path.join(__dirname, '/build');
 // const port = process.env.PORT || 3001;
 
-// app.use(express.static(publicPath));
+app.use(express.static(publicPath));
 
 app.get("*", function(request, response){
-    // response.sendFile(path.join(publicPath, 'index.html'));
-    response.send("Hello World");
+    response.sendFile(path.join(publicPath, 'index.html'));
+    // response.send("Hello World");
 
 });
 
