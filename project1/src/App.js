@@ -42,7 +42,7 @@ function App() {
           "method": "GET",
           "headers": {
           "x-rapidapi-host": "restcountries-v1.p.rapidapi.com",
-          "x-rapidapi-key": "38fb9f0126msh7282824fb92721fp160b73jsn317dc876bd2c"
+          "x-rapidapi-key": process.env.REACT_APP_RAPIDCOUNTRYCODE_API_KEY
           }
         }
         
