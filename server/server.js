@@ -2,7 +2,7 @@ const path = require('path');
 const express = require("express");
 const app = express();
 const publicPath = path.join(__dirname, '/build');
-// const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3001;
 
 app.use(express.static(publicPath));
 
@@ -12,6 +12,6 @@ app.get("*", function(request, response){
 
 });
 
-app.listen(3001, function(){
+app.listen(PORT, function(){
     console.log("Sever is Listening.");
 });
