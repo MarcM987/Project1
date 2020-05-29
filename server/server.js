@@ -12,6 +12,6 @@ app.get("*", function(request, response){
 
 });
 
-app.listen(PORT, function(){
+app.listen(port, function(){
     console.log("Sever is Listening.");
 });
