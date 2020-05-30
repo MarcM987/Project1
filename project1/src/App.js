@@ -162,7 +162,7 @@ function App() {
 
 
     <div className="card">
-        <div className="table table-responsive table-wrapper-scroll-y my-custom-scrollbar">
+        <div className="table table-responsive pre-scrollable">
             <table className="table table-bordered table-hover">
                 <thead className="thead-dark scroll">
                     <tr>
@@ -184,7 +184,7 @@ function App() {
     </div>
 
     <div className="card">
-            <div className="table table-responsive table-wrapper-scroll-y my-custom-scrollbar">
+            <div className="table table-responsive pre-scrollable">
                 <table className="table table-bordered table-hover">
                     <thead className="thead-dark">
                         <tr>
