@@ -16,11 +16,58 @@ function App() {
 
   React.useEffect(function(){
     async function wait(){
+
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+        authDomain: "groupproject1-73c74.firebaseapp.com",
+        databaseURL: "https://groupproject1-73c74.firebaseio.com",
+        projectId: "groupproject1-73c74",
+        storageBucket: "groupproject1-73c74.appspot.com",
+        messagingSenderId: "398999884281",
+        appId: "1:398999884281:web:7eac86826ce3abc07fad28",
+        measurementId: "G-VQXFZW71R4"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+  
+      console.log(firebase);
+
+      var dataRef = firebase.database();
+      
+      // let countries = ["Denmark","Canada"]; 
+      // console.log(countries);
+      // function addButton(){
+      //     $("#btnArea").empty();
+      //     for (let i = 0; i < countries.length; i++){
+      //         let button = $("<button>");
+      //             button.addClass("countries");
+      //             button.attr("data-country", countries[i]);
+      //             button.text(countries[i]);
+      //             $("#btnArea").append(button);
+      //     }
+      // }
+      // addButton();
+
       $(".btn").on("click", async function() {
         var searchCountry = $("#country").val().trim() || $("#selectedCountry").val().trim();
         // var searchDisease = $("#disease").val().trim();
 
         console.log("Search Country: ", searchCountry);
+
+        // event.preventDefault();
+        // let countrySearched = searchCountry;
+        // countries.push(countrySearched);
+        // addButton();
+
+
+        dataRef.ref().push({
+          countries: countries,
+          dataAdded: firebase.database.ServerValue.TIMESTAMP
+        });
+
+        
       
         var queryURLc = "https://api.covid19api.com/summary";
       
@@ -130,23 +177,6 @@ function App() {
         });
         $("#country").val("");
       });
-  
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-        authDomain: "groupproject1-73c74.firebaseapp.com",
-        databaseURL: "https://groupproject1-73c74.firebaseio.com",
-        projectId: "groupproject1-73c74",
-        storageBucket: "groupproject1-73c74.appspot.com",
-        messagingSenderId: "398999884281",
-        appId: "1:398999884281:web:7eac86826ce3abc07fad28",
-        measurementId: "G-VQXFZW71R4"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
-  
-      console.log(firebase);
 
     }
     wait();
@@ -223,6 +253,23 @@ function App() {
                 </table>
             </div>
       </div>
+
+      <div className="card">
+        <div className="table table-responsive pre-scrollable">
+            <table className="table table-bordered table-hover">
+                <thead className="thead-dark scroll">
+                    <tr>
+                        <th scope="col">Searched Country</th>
+                        <th scope="col">TimeStamp</th>
+                    </tr>
+                </thead>
+                <tbody id="table3">
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
 
     <div className="footer"> Copyright 2020 &copy; Jessica VC | Marc M | Rafael </div>
   </>  
