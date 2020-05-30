@@ -4,15 +4,23 @@ import './assets/css/reset.css';
 import './assets/css/style.css';
 import firebase from 'firebase';
 
+import {countries} from './countries/countries';
+
 import $ from 'jquery';
 
 function App() {
+  const [name, setName] = React.useState("Marc");
+  // setName("Erica");
+  console.log({name});
+  console.log({countries});
 
   React.useEffect(function(){
     async function wait(){
       $(".btn").on("click", async function() {
-        var searchCountry = $("#country").val().trim();
+        var searchCountry = $("#country").val().trim() || $("#selectedCountry").val().trim();
         // var searchDisease = $("#disease").val().trim();
+
+        console.log("Search Country: ", searchCountry);
       
         var queryURLc = "https://api.covid19api.com/summary";
       
@@ -51,7 +59,7 @@ function App() {
           console.log(countryCode);
         });
   
-        
+        $("#table2").html("<tr>");
         for(let i=0; i<diseases.length; ++i){
           var queryURLg = "https://apps.who.int/gho/athena/api/GHO/WHS3_" + (40 + i) + ".json?filter=COUNTRY:" + countryCode;
       
@@ -69,7 +77,7 @@ function App() {
               }
             });
   
-            console.log(year);
+            // console.log(year);
             
                  
             var tblRow = $("<tr>" + 
@@ -78,7 +86,7 @@ function App() {
             "<td>" + (response && response.fact && response.fact[0] && response.fact[0].value && response.fact[0].value.display || "No Data") + "</td>" + 
             "<td>" + (year && year.code || "No Data") + "</td>" +
             "</tr>");
-      
+            
             $("#table2").append(tblRow);
           });
       
@@ -93,8 +101,10 @@ function App() {
           var response = data;
           var today = new Date();
           var year = today.getFullYear();
+
+          console.log("Table 1",response);
       
-          for(let i=0; i<186; ++i){
+          for(let i=0; i<response.Countries.length; ++i){
             if(response.Countries[i].Country == searchCountry){
               // console.log(response.Countries[i]);
               var tblRow = $("<tr>" + 
@@ -106,14 +116,19 @@ function App() {
               "<td>" + Math.trunc(response.Countries[i].TotalDeaths/response.Countries[i].TotalConfirmed*100) + "%</td>" + 
               "<td>" + year + "</td>" + 
               "</tr>");
-              $("#table1").html(tblRow);
+              console.log("TableRow", tblRow);
+              $("#table1").append(tblRow);
       
             }else{
               //append to buttom of form, country or disease not found
             }
             
           }
+        })
+        .catch(function(error){
+          console.log("table1Error", error);
         });
+        $("#country").val("");
       });
   
       // Your web app's Firebase configuration
@@ -142,7 +157,7 @@ function App() {
   <>
     <header>
         <div className="text-box">
-            <h1>COVID-19 Tracker</h1>
+  <h1>COVID-19 Tracker</h1>
             <p>Compare COVID-19 to Infectious Diseases Worldwide</p>
         </div>
     </header>
@@ -153,6 +168,12 @@ function App() {
             <div className="col">
                 <input type="text" id="country" className="form-control" placeholder="Country"/>
             </div>
+
+            <select id="selectedCountry">
+              {countries.map(function(country){
+                return (<option value={country}>{country}</option>)
+              })}
+            </select>
             {/* <!-- <div className="col">
                 <input type="text" id="disease" className="form-control" placeholder="Disease"/>
             </div> --> */}
