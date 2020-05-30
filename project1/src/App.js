@@ -66,8 +66,11 @@ function App() {
           countries: countries,
           dataAdded: firebase.database.ServerValue.TIMESTAMP
         });
-
-        
+        //..
+        dataRef.ref().on("child_added", function(childSnapshot){
+          $("#table3").append("<tr><td>" + childSnapshot.val().countries + "</td>" + childSnapshot.val().dataAdded + "</tr>"
+          );
+          });
       
         var queryURLc = "https://api.covid19api.com/summary";
       
