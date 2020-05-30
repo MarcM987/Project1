@@ -63,8 +63,16 @@ function App() {
 
 
         dataRef.ref().push({
-          countries: countries,
+          countries: searchCountry,
           dataAdded: firebase.database.ServerValue.TIMESTAMP
+        });
+
+        dataRef.ref().on("child_added", function(childSnapshot) {
+          $("#table3").append("<tr><td>" + childSnapshot.val().countries + "</td><td>" + childSnapshot.val().dataAdded + "</td></tr>");
+
+          // Handle the errors
+        }, function(errorObject) {
+          console.log("Errors handled: " + errorObject.code);
         });
 
         
@@ -259,7 +267,7 @@ function App() {
             <table className="table table-bordered table-hover">
                 <thead className="thead-dark scroll">
                     <tr>
-                        <th scope="col">Searched Country</th>
+                        <th scope="col">Searched Countries</th>
                         <th scope="col">TimeStamp</th>
                     </tr>
                 </thead>
